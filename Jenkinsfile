@@ -18,8 +18,7 @@ pipeline {
         }
         stage("Code coverage") {
             steps {
-                bat "mvn jacoco:check"
-                bat "mvn jacoco:report"
+                bat "mvn clean verify"
             }
         }
     }
