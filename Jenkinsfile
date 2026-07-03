@@ -31,7 +31,16 @@ pipeline {
         }
         stage('Static Code Analysis') {
             steps {
-                bat 'mvn checkstyle:check'
+                bat 'mvn clean checkstyle:checkstyle'
+
+                recordIssues(
+                    enabledForFailure: true,
+                    tools: [
+                        checkStyle(
+                            pattern: 'target/checkstyle-result.xml'
+                        )
+                    ]
+                )
             }
         }
     }
