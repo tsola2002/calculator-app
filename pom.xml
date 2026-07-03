@@ -145,6 +145,32 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.6.0</version>
+
+				<configuration>
+					<!-- Location of your Checkstyle rules -->
+					<configLocation>checkstyle.xml</configLocation>
+
+					<!-- Fail the build if violations are found -->
+					<failsOnError>true</failsOnError>
+
+					<!-- Show violations in the Maven output -->
+					<consoleOutput>true</consoleOutput>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>checkstyle-validation</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

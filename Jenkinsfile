@@ -29,5 +29,10 @@ pipeline {
                 ])
             }
         }
+        stage('Static Code Analysis') {
+            steps {
+                bat 'mvn checkstyle:check'
+            }
+        }
     }
 }
